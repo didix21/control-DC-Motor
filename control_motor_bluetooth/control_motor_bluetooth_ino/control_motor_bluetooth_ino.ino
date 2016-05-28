@@ -27,8 +27,7 @@ void setup() {
   strPwmB.reserve(10);
 }
  
-void loop() {
- 
+void loop() { 
   if(comFinished){
     if(syllable[0]=='A'||syllable[0]=='B'){//Check if data to enable motor A or B
       for(j=0; j<x; j++){
@@ -61,8 +60,7 @@ void loop() {
       }else if(pwmA<0){
         analogWrite(IN1,0);
         analogWrite(IN2,-pwmA);
-      }
-     
+      }     
       strPwmA="";
     }else if(syllable[0]=='b'){
       for(j=1; j<x; j++){
@@ -83,19 +81,4 @@ void loop() {
   }
 }
  
-// Function that adquire data from Android App
-void serialEvent(){
-  while(Serial.available()) {
-    data=(char)Serial.read();
-   
-    if (data != '\n'){
-      syllable[i++]=data;
-   
-    } else{
-        comFinished = true;
-       x=i;
-       i=0;
-    }
-   
-  }
-}
+
